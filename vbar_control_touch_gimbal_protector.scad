@@ -1,5 +1,5 @@
 //author: Roman 'krpec' Dittrich (dittrich.r@gmail.com)
-//VBar Control gimbal protector, version 1.3
+//VBar Control Touch gimbal protector, version 1.0
 //inspired by VBAR save-transport by Wastleast - https://www.thingiverse.com/thing:3604403
 
 include <Chamfer.scad>;
@@ -14,7 +14,7 @@ module chamfer_base() {
     union() {
         translate([-63.5, -7.5, 0])
             chamferCube([127, 15, 12], chamfers=[[0, 0, 2, 2], [0, 2, 2, 0], [2, 2, 2, 2]]);
-        translate([-5, -(42+7.5), 0])
+        translate([-5, -44, 0])
             chamferCube([10, 43, 10], chamfers=[[0, 0, 0, 1], [0, 1, 1, 0], [1, 1, 0, 0]]);
     }
 }
@@ -23,18 +23,18 @@ module round_base() {
     union() {
         translate([-63.5, -7.5, 0])
             roundedcube([127, 15, 12], false, 2, "zmax");
-        translate([-5, -(42+7.5), 0])
-            roundedcube([10, 43, 10], false, 2, "zmax");
+        translate([-5, -39, 0])
+            roundedcube([10, 35, 10], false, 2, "zmax");
     }
 }
 
 module holder_text() {
-    //translate([-46, -4, 10])
-    //    linear_extrude(3)
-    //        text("Fránis VBar control", size = 8);
-    translate([-28, -4, 10])
+    translate([-49, -4, 10])
         linear_extrude(3)
-            text("VBar Control", size = 8);
+            text("VBar Touch    Fránis", size = 8);
+    //translate([-28, -4, 10])
+    //    linear_extrude(3)
+    //        text("VBar Control", size = 8);
 }
 
 module stick_holes() {
@@ -46,8 +46,8 @@ module stick_holes() {
 }
 
 module strap_holder() {
-    translate([0, -(14+20), 0])
-        cube([3.5, 25, 40], center = true);
+    translate([0, -(10.5+14.5), 0])
+        cube([3.5, 21, 40], center = true);
 }
 
 //style = "chamfer" | "round"
